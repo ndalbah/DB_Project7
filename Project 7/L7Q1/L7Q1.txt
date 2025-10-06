@@ -1,0 +1,366 @@
+SQL> 
+SQL> -- run script 7software
+SQL> @ C:\L7Q1\7software.sql
+Connected.
+
+User dropped.
+
+
+User created.
+
+
+Grant succeeded.
+
+
+User altered.
+
+Connected.
+DROP TABLE evaluation CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE project_consultant CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE project_skill CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE project CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE client CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE consultant_skill CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE skill CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE consultant CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table altered.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Commit complete.
+
+SQL> 
+SQL> -- create view to display info
+SQL> CREATE OR REPLACE VIEW project_info AS SELECT project_name, c_first, c_last FROM project, consultant, project_consultant WHERE consultant.c_id = project_consultant.c_id AND project.p_id = project_consultant.p_id WITH READ ONLY;
+
+View created.
+
+SQL> 
+SQL> SELECT*FROM project_info;
+
+PROJECT_NAME                   C_FIRST              C_LAST                      
+------------------------------ -------------------- --------------------        
+Hardware Support Interface     Mark                 Myers                       
+Exploration Database           Mark                 Myers                       
+Hardware Support Intranet      Sheila               Hernandez                   
+Teller Support System          Brian                Zhang                       
+Exploration Database           Brian                Zhang                       
+Hardware Support Intranet      Sarah                Carlson                     
+Hardware Support Database      Sarah                Carlson                     
+Internet Advertising           Sarah                Carlson                     
+Network Design                 Sarah                Carlson                     
+Hardware Support Intranet      Paul                 Courtlandt                  
+Hardware Support Database      Paul                 Courtlandt                  
+
+PROJECT_NAME                   C_FIRST              C_LAST                      
+------------------------------ -------------------- --------------------        
+Teller Support System          Paul                 Courtlandt                  
+Network Design                 Paul                 Courtlandt                  
+Hardware Support Intranet      Janet                Park                        
+Hardware Support Interface     Janet                Park                        
+Teller Support System          Janet                Park                        
+Internet Advertising           Janet                Park                        
+
+17 rows selected.
+
+SQL> 
+SQL> -- save spool
+SQL> SPOOL OFF;

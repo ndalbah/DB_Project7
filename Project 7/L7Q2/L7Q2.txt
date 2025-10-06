@@ -1,0 +1,326 @@
+SQL> 
+SQL> -- run script 7software
+SQL> @ C:\L7Q2\7Northwoods.sql
+Connected.
+
+User dropped.
+
+
+User created.
+
+
+Grant succeeded.
+
+
+User altered.
+
+Connected.
+DROP TABLE enrollment CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE course_section CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE term CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE course CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE student CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE faculty CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+DROP TABLE location CASCADE CONSTRAINTS
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+1 row created.
+
+
+Commit complete.
+
+SQL> 
+SQL> -- create view "student_faculty_1"
+SQL> CREATE OR REPLACE VIEW student_faculty_1 AS SELECT f_id, s_last, s_first, s_dob FROM student WHERE f_id IN (1,2) WITH CHECK OPTION;
+
+View created.
+
+SQL> 
+SQL> SELECT*FROM student_faculty_1;
+
+      F_ID S_LAST                         S_FIRST                               
+---------- ------------------------------ ------------------------------        
+S_DOB                                                                           
+---------                                                                       
+         1 Miller                         Sarah                                 
+14-JUL-85                                                                       
+                                                                                
+         1 Umato                          Brian                                 
+19-AUG-85                                                                       
+                                                                                
+         1 Black                          Daniel                                
+10-OCT-82                                                                       
+                                                                                
+
+      F_ID S_LAST                         S_FIRST                               
+---------- ------------------------------ ------------------------------        
+S_DOB                                                                           
+---------                                                                       
+         2 Mobley                         Amanda                                
+24-SEP-86                                                                       
+                                                                                
+
+SQL> UPDATE student_faculty_1 SET f_id = 3 WHERE s_last = 'Umato' AND s_first = 'Brian';
+UPDATE student_faculty_1 SET f_id = 3 WHERE s_last = 'Umato' AND s_first = 'Brian'
+       *
+ERROR at line 1:
+ORA-01402: view WITH CHECK OPTION where-clause violation 
+
+
+SQL> SPOOL OFF;
